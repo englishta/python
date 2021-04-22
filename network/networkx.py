@@ -1,4 +1,4 @@
-# %%
+#%%
 import networkx as nx
 G = nx.Graph()
 N = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
@@ -22,4 +22,24 @@ G=nx.watts_strogatz_graph(100,4,0.2)
 nx.draw(G, node_color = "red")
 plt.show()
 
+# %%
+import matplotlib.pyplot as plt
+import networkx as nx
 
+g = nx.Graph()
+g.add_node((0, 0))
+g.add_node((0, 1))
+g.add_edge((0, 0), (0, 1))
+
+nx.draw_networkx(g, node_color='w')
+# %%
+nw = nx.grid_2d_graph(3, 3)
+
+# 各ノードの描画位置を指定する辞書 { ノードのキー : (x座標, y座標) }
+pos = {n: (n[0], -n[1]) for n in nw.nodes()}
+pos
+#%%
+nx.draw_networkx(nw, pos=pos, node_color='w')
+plt.gca().xaxis.set_visible(False)
+plt.gca().yaxis.set_visible(False)
+plt.show()
