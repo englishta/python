@@ -52,7 +52,7 @@ def Main():
     data_frame = pd.DataFrame(data)
 
     for file_number in range(1, 11): #1.c～10.cまで
-        Sc, Rev = search("./"+str(file_number)+".c")
+        Sc, Rev = search("./c_code/"+str(file_number)+".c")
         data_frame["review"][file_number-1] = Rev 
         data_frame["score"][file_number-1] = Sc
         
